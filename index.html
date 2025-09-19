@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinuTime.com - Premium Domain For Sale</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 60px 0;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .domain-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: slideInRight 1s ease-out 0.3s both;
+        }
+        
+        .domain-name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .price {
+            font-size: 3rem;
+            color: #4ade80;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #4ade80, #22c55e);
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            margin: 10px;
+            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(74, 222, 128, 0.4);
+        }
+        
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+        
+        .stat {
+            text-align: center;
+            margin: 20px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #4ade80;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .timer {
+            font-family: 'Courier New', monospace;
+            font-size: 1.5rem;
+            color: #4ade80;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            .tagline {
+                font-size: 1.2rem;
+            }
+            .domain-name {
+                font-size: 2rem;
+            }
+            .price {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">MinuTime</div>
+            <div class="tagline">Every Minute Counts. Every Second Matters.</div>
+            <div class="timer" id="timer">00:00:00</div>
+        </header>
+        
+        <section class="domain-box">
+            <div style="background: linear-gradient(45deg, #ff6b6b, #feca57); color: white; padding: 10px 20px; border-radius: 25px; display: inline-block; margin-bottom: 20px; font-size: 1.1rem; font-weight: bold;">
+                🎁 EXCLUSIVE BUNDLE OFFER 🎁
+            </div>
+            <div class="domain-name">MinuTime Portfolio</div>
+            <div style="font-size: 1.5rem; margin: 20px 0; line-height: 1.5;">
+                <div style="color: #4ade80; font-weight: bold;">✨ MinuTime.com</div>
+                <div style="color: #60a5fa; font-weight: bold;">✨ MinuTime.link</div>
+                <div style="color: #f472b6; font-weight: bold;">✨ MinuTime.info</div>
+            </div>
+            <div style="font-size: 1.2rem; opacity: 0.9;">Complete Premium Domain Portfolio</div>
+            <div style="font-size: 1.5rem; text-decoration: line-through; opacity: 0.7; margin-top: 15px;">$3,500</div>
+            <div class="price">$2,299</div>
+            <div style="opacity: 0.8; margin-top: 10px;">💎 3 Premium Domains • 🚀 Full Brand Protection • ⚡ Business Ready</div>
+            <div style="background: rgba(255, 107, 107, 0.2); padding: 15px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #ff6b6b;">
+                <strong>🔥 Limited Time: Save $1,201!</strong><br>
+                Perfect for complete brand protection across all extensions
+            </div>
+        </section>
+        
+        <section class="stats">
+            <div class="stat">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Premium Domains</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Brand Protection</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">$1,201</div>
+                <div class="stat-label">You Save</div>
+            </div>
+        </section>
+        
+        <section class="features">
+            <div class="feature">
+                <span class="feature-icon">⏱️</span>
+                <h3>Time Management Apps</h3>
+                <p>Perfect for productivity apps, time tracking tools, and scheduling platforms</p>
+            </div>
+            
+            <div class="feature">
+                <span class="feature-icon">🎯</span>
+                <h3>Fitness & Training</h3>
+                <p>Ideal for interval training apps, workout timers, and fitness challenges</p>
+            </div>
+            
+            <div class="feature">
+                <span class="feature-icon">📊</span>
+                <h3>Business Solutions</h3>
+                <p>Great for project management, meeting schedulers, and time analytics</p>
+            </div>
+            
+            <div class="feature">
+                <span class="feature-icon">🎮</span>
+                <h3>Gaming & Entertainment</h3>
+                <p>Perfect for timing games, quick challenges, and interactive experiences</p>
+            </div>
+            
+            <div class="feature">
+                <span class="feature-icon">📱</span>
+                <h3>Mobile Apps</h3>
+                <p>Short, memorable name that works perfectly for mobile applications</p>
+            </div>
+            
+            <div class="feature">
+                <span class="feature-icon">🌐</span>
+                <h3>Global Appeal</h3>
+                <p>Easy to pronounce and remember in any language or market</p>
+            </div>
+        </section>
+        
+        <section style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 40px; margin: 40px 0; border: 1px solid rgba(255, 255, 255, 0.2);">
+            <h3 style="text-align: center; margin-bottom: 30px; font-size: 1.8rem;">💰 Individual Domain Values</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <div style="background: rgba(74, 222, 128, 0.1); padding: 25px; border-radius: 12px; border-left: 4px solid #4ade80;">
+                    <h4 style="color: #4ade80; font-size: 1.3rem; margin-bottom: 10px;">MinuTime.com</h4>
+                    <div style="font-size: 1.8rem; font-weight: bold; margin-bottom: 10px;">$1,500</div>
+                    <p style="opacity: 0.9;">Premium .COM extension - Most valuable</p>
+                </div>
+                <div style="background: rgba(96, 165, 250, 0.1); padding: 25px; border-radius: 12px; border-left: 4px solid #60a5fa;">
+                    <h4 style="color: #60a5fa; font-size: 1.3rem; margin-bottom: 10px;">MinuTime.link</h4>
+                    <div style="font-size: 1.8rem; font-weight: bold; margin-bottom: 10px;">$1,000</div>
+                    <p style="opacity: 0.9;">Perfect for modern apps & links</p>
+                </div>
+                <div style="background: rgba(244, 114, 182, 0.1); padding: 25px; border-radius: 12px; border-left: 4px solid #f472b6;">
+                    <h4 style="color: #f472b6; font-size: 1.3rem; margin-bottom: 10px;">MinuTime.info</h4>
+                    <div style="font-size: 1.8rem; font-weight: bold; margin-bottom: 10px;">$1,000</div>
+                    <p style="opacity: 0.9;">Great for information platforms</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px; font-size: 1.3rem;">
+                <span style="opacity: 0.8;">Total Individual Value: </span>
+                <span style="text-decoration: line-through; color: #ff6b6b;">$3,500</span>
+                <span style="margin: 0 15px; font-size: 1.8rem;">→</span>
+                <span style="color: #4ade80; font-weight: bold;">Bundle Price: $2,299</span>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2 style="margin-bottom: 30px;">Ready to Own This Complete Domain Portfolio?</h2>
+            <a href="mailto:yassinebouaida@gmail.com?subject=MinuTime Domain Bundle Inquiry" class="cta-button">📧 Contact Now</a>
+            <a href="https://wa.me/212633348514?text=Hi! I'm interested in the MinuTime domain bundle" class="cta-button">💬 WhatsApp</a>
+        </section>
+        
+        <section class="contact-info">
+            <h3 style="margin-bottom: 20px;">Why Choose the Complete MinuTime Portfolio?</h3>
+            <p style="margin-bottom: 20px;">Get complete brand protection with all three premium domains! This powerful bundle combines .COM, .LINK, and .INFO extensions, giving you total control over the MinuTime brand.</p>
+            
+            <div style="background: rgba(74, 222, 128, 0.1); padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #4ade80;">
+                <h4 style="color: #4ade80; margin-bottom: 10px;">🎯 Perfect For:</h4>
+                <p>• Time Management Platforms • Productivity Apps • Fitness Timers • Business Solutions • Educational Tools • Gaming Platforms</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px;">
+                <div>✅ Instant Transfer</div>
+                <div>✅ Full Ownership</div>
+                <div>✅ No Hidden Fees</div>
+                <div>✅ Secure Payment</div>
+                <div>✅ Brand Protection</div>
+                <div>✅ SEO Advantage</div>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 10px;">
+                <h4 style="margin-bottom: 10px;">📞 Contact Information:</h4>
+                <p>📧 Email: yassinebouaida@gmail.com</p>
+                <p>📱 WhatsApp: +212 633 348 514</p>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        // Live timer
+        function updateTimer() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('timer').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        
+        setInterval(updateTimer, 1000);
+        updateTimer();
+        
+        // Add some interactive effects
+        document.querySelectorAll('.feature').forEach(feature => {
+            feature.addEventListener('mouseenter', function() {
+                this.style.background = 'rgba(255, 255, 255, 0.2)';
+            });
+            
+            feature.addEventListener('mouseleave', function() {
+                this.style.background = 'rgba(255, 255, 255, 0.1)';
+            });
+        });
+    </script>
+</body>
+</html>
