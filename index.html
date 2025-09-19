@@ -3,167 +3,966 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MinuTime.com - Premium Domain For Sale</title>
+    <title>MinuTime Domains - Premium Portfolio For Sale</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --secondary-gradient: linear-gradient(135deg, #4ade80, #22c55e);
+            --tertiary-gradient: linear-gradient(135deg, #60a5fa, #3b82f6);
+            --quaternary-gradient: linear-gradient(135deg, #f472b6, #ec4899);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.9);
+            --accent-green: #4ade80;
+            --accent-blue: #60a5fa;
+            --accent-pink: #f472b6;
+            --accent-orange: #fbbf24;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Poppins', sans-serif;
+            background: var(--primary-gradient);
             min-height: 100vh;
-            color: white;
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--primary-gradient);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+        }
+        
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(74, 222, 128, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(96, 165, 250, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, rgba(244, 114, 182, 0.2) 0%, transparent 50%);
+            animation: floatBubbles 15s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes floatBubbles {
+            0%, 100% { opacity: 0.4; transform: translateY(0px) scale(1); }
+            50% { opacity: 0.8; transform: translateY(-20px) scale(1.1); }
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
+            position: relative;
         }
         
+        /* Header Section */
         .header {
             text-align: center;
-            padding: 60px 0;
+            padding: clamp(40px, 10vh, 80px) 20px;
             animation: fadeInUp 1s ease-out;
+            position: relative;
         }
         
-        .logo {
-            font-size: 4rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #fff, #f0f8ff);
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .logo-container::before {
+            content: '⚡';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            border-radius: 50%;
+            width: clamp(30px, 5vw, 35px);
+            height: clamp(30px, 5vw, 35px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+            animation: energyFlash 2s ease-in-out infinite;
+            z-index: 4;
+        }
+        
+        @keyframes energyFlash {
+            0%, 100% { 
+                opacity: 0.8;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.15);
+            }
+        }
+        
+        .logo-icon {
+            width: clamp(80px, 12vw, 120px);
+            height: clamp(80px, 12vw, 120px);
+            background: var(--secondary-gradient);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 20px 60px rgba(74, 222, 128, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            animation: logoFloat 4s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: logoRotate 6s linear infinite;
+        }
+        
+        .logo-icon::after {
+            content: '⚙️';
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+            animation: gearRotate 8s linear infinite;
+        }
+        
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: logoRotate 6s linear infinite;
+        }
+        
+        /* Additional gear overlay for mechanical effect */
+        .logo-container::after {
+            content: '🤖';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            width: clamp(35px, 6vw, 45px);
+            height: clamp(35px, 6vw, 45px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            animation: aiPulse 3s ease-in-out infinite;
+            z-index: 4;
+        }
+        
+        @keyframes gearRotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        @keyframes aiPulse {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            }
+            50% { 
+                transform: scale(1.1);
+                box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+            }
+        }
+        
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            25% { transform: translateY(-10px) rotate(-2deg) scale(1.02); }
+            50% { transform: translateY(-5px) rotate(0deg) scale(1.05); }
+            75% { transform: translateY(-15px) rotate(2deg) scale(1.02); }
+        }
+        
+        @keyframes logoRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Add circuit pattern overlay */
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            inset: 5px;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 70% 70%, rgba(255,255,255,0.1) 2px, transparent 2px),
+                linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.05) 50%, transparent 60%);
+            border-radius: 25px;
+            z-index: 2;
+        }
+        
+        .gear-main {
+            content: '⚙️';
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+            animation: gearRotate 8s linear infinite;
+        }
+        
+        .brand-name {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff 0%, #f0f8ff 50%, #e0e7ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+            position: relative;
+            margin: 20px 0;
+            letter-spacing: -2px;
+        }
+        
+        .brand-name::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            background: linear-gradient(45deg, var(--accent-green), var(--accent-blue), var(--accent-pink), var(--accent-orange));
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0;
+            filter: blur(20px);
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 0.3; }
+        }
+        
+        .tagline {
+            font-size: clamp(1rem, 3vw, 1.8rem);
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
-        .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
+        .live-timer {
+            font-family: 'Courier New', monospace;
+            font-size: clamp(1.1rem, 3.5vw, 1.6rem);
+            color: var(--accent-green);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid var(--glass-border);
+            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.2);
+            position: relative;
+            overflow: hidden;
         }
         
-        .domain-box {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 40px;
-            margin: 40px 0;
+        .live-timer::before {
+            content: '🕐';
+            animation: tickTock 2s infinite;
+            font-size: 1.2em;
+        }
+        
+        .live-timer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.2), transparent);
+            animation: timerShine 2s infinite;
+        }
+        
+        @keyframes tickTock {
+            0%, 50%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(20deg); }
+            75% { transform: rotate(-20deg); }
+        }
+        
+        @keyframes timerShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        /* Bundle Offer Section */
+        .bundle-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            border-radius: 30px;
+            padding: clamp(30px, 6vw, 60px);
+            margin: 60px 0;
+            border: 1px solid var(--glass-border);
+            animation: slideInUp 1s ease-out 0.3s both;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+        
+        .bundle-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 4s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .offer-badge {
+            background: linear-gradient(135deg, #ff6b6b, #feca57, #ff6b6b);
+            background-size: 200% 200%;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 40px;
+            font-size: clamp(0.9rem, 2.5vw, 1.3rem);
+            font-weight: 700;
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+            animation: badgePulse 3s infinite, badgeGradient 3s ease-in-out infinite;
+            position: relative;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: slideInRight 1s ease-out 0.3s both;
+        }
+        
+        .offer-badge::before {
+            content: '✨';
+            position: absolute;
+            left: -15px;
+            animation: sparkle 2s infinite;
+        }
+        
+        .offer-badge::after {
+            content: '✨';
+            position: absolute;
+            right: -15px;
+            animation: sparkle 2s infinite 1s;
+        }
+        
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes badgeGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+            50% { opacity: 0.5; transform: scale(1.5) rotate(180deg); }
+        }
+        
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .domain-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid var(--glass-border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .domain-card::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            box-shadow: 0 0 20px var(--accent-green);
+            animation: statusBlink 3s infinite;
+        }
+        
+        .domain-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(255, 255, 255, 0.15);
+        }
+        
+        .domain-card.primary {
+            border-color: var(--accent-green);
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.1), var(--glass-bg));
+        }
+        
+        .domain-card.primary::after {
+            content: '👑';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.8rem;
+            filter: drop-shadow(0 2px 8px rgba(255, 215, 0, 0.6));
+        }
+        
+        .domain-card.secondary {
+            border-color: var(--accent-blue);
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), var(--glass-bg));
+        }
+        
+        .domain-card.secondary::before {
+            background: var(--accent-blue);
+            box-shadow: 0 0 20px var(--accent-blue);
+        }
+        
+        .domain-card.tertiary {
+            border-color: var(--accent-pink);
+            background: linear-gradient(135deg, rgba(244, 114, 182, 0.1), var(--glass-bg));
+        }
+        
+        .domain-card.tertiary::before {
+            background: var(--accent-pink);
+            box-shadow: 0 0 20px var(--accent-pink);
+        }
+        
+        @keyframes statusBlink {
+            0%, 70%, 100% { opacity: 1; }
+            35% { opacity: 0.3; }
         }
         
         .domain-name {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #fff;
-        }
-        
-        .price {
-            font-size: 3rem;
-            color: #4ade80;
-            font-weight: bold;
-            margin: 20px 0;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 60px 0;
-        }
-        
-        .feature {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease;
-            animation: fadeIn 1s ease-out;
-        }
-        
-        .feature:hover {
-            transform: translateY(-10px);
-        }
-        
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-        
-        .feature h3 {
-            font-size: 1.3rem;
+            font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+            font-weight: 800;
             margin-bottom: 15px;
+            letter-spacing: -0.5px;
         }
         
-        .cta-section {
-            text-align: center;
-            padding: 60px 0;
+        .domain-price {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 900;
+            color: var(--accent-green);
+            text-shadow: 0 2px 10px rgba(74, 222, 128, 0.3);
+            margin: 10px 0;
         }
         
-        .cta-button {
+        .domain-extension {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            opacity: 0.8;
+            margin-top: 10px;
+            padding: 5px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
             display: inline-block;
-            background: linear-gradient(45deg, #4ade80, #22c55e);
-            color: white;
-            padding: 20px 40px;
-            font-size: 1.3rem;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            margin: 10px;
+        }
+        
+        .bundle-pricing {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+            border-radius: 25px;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .bundle-pricing::before {
+            content: '💰';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            background: var(--secondary-gradient);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             box-shadow: 0 10px 30px rgba(74, 222, 128, 0.3);
         }
         
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(74, 222, 128, 0.4);
+        .original-price {
+            font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+            text-decoration: line-through;
+            opacity: 0.7;
+            color: #ff6b6b;
+            margin-bottom: 10px;
         }
         
-        .contact-info {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 40px;
-            margin: 40px 0;
+        .bundle-price {
+            font-size: clamp(3rem, 8vw, 4.5rem);
+            font-weight: 900;
+            color: var(--accent-green);
+            margin: 20px 0;
+            text-shadow: 0 5px 20px rgba(74, 222, 128, 0.4);
+            line-height: 1;
+        }
+        
+        .savings {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: var(--accent-orange);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-orange), #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 80px 0;
+        }
+        
+        .stat-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px 20px;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
         
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin: 40px 0;
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(74, 222, 128, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
         
-        .stat {
-            text-align: center;
-            margin: 20px;
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(74, 222, 128, 0.2);
         }
         
         .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #4ade80;
+            font-size: clamp(2.5rem, 6vw, 3rem);
+            font-weight: 900;
+            color: var(--accent-green);
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(74, 222, 128, 0.3);
         }
         
         .stat-label {
-            font-size: 1rem;
-            opacity: 0.8;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            opacity: 0.9;
+            font-weight: 500;
         }
         
+        /* Features Section */
+        .features-section {
+            margin: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary-gradient);
+            border-radius: 2px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                                      rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 30px 80px rgba(255, 255, 255, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            display: block;
+            text-align: center;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+            transition: all 0.4s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+        
+        .feature-card:nth-child(1) .feature-icon::before { content: '📋'; }
+        .feature-card:nth-child(2) .feature-icon::before { content: '💪'; }
+        .feature-card:nth-child(3) .feature-icon::before { content: '📈'; }
+        .feature-card:nth-child(4) .feature-icon::before { content: '🎮'; }
+        .feature-card:nth-child(5) .feature-icon::before { content: '🎓'; }
+        .feature-card:nth-child(6) .feature-icon::before { content: '📱'; }
+        
+        .feature-title {
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+        
+        .feature-description {
+            opacity: 0.9;
+            line-height: 1.7;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            color: var(--text-secondary);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: clamp(40px, 8vw, 80px) clamp(20px, 4vw, 40px);
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            border-radius: 30px;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+        }
+        
+        .cta-section::before {
+            content: '🚀';
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 3rem;
+            animation: rocketFloat 4s ease-in-out infinite;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+        }
+        
+        @keyframes rocketFloat {
+            0%, 100% { transform: translateY(0px) rotate(-10deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+        }
+        
+        .cta-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--secondary-gradient);
+            color: white;
+            padding: 20px 40px;
+            font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 20px 40px rgba(74, 222, 128, 0.3);
+            position: relative;
+            overflow: hidden;
+            min-width: 200px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 25px 60px rgba(74, 222, 128, 0.5);
+        }
+        
+        .cta-button.secondary {
+            background: var(--tertiary-gradient);
+            box-shadow: 0 20px 40px rgba(96, 165, 250, 0.3);
+        }
+        
+        .cta-button.secondary:hover {
+            box-shadow: 0 25px 60px rgba(96, 165, 250, 0.5);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            border-radius: 30px;
+            padding: clamp(40px, 6vw, 80px);
+            margin: 80px 0;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-section h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .contact-section > p {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: clamp(1.1rem, 2.8vw, 1.3rem);
+            opacity: 0.9;
+            line-height: 1.7;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(74, 222, 128, 0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .contact-card:hover::before {
+            opacity: 1;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+            text-align: center;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover .contact-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+        
+        .contact-card:nth-child(1) .contact-icon::before { content: '🛡️'; }
+        .contact-card:nth-child(2) .contact-icon::before { content: '🚀'; }
+        .contact-card:nth-child(3) .contact-icon::before { content: '⚡'; }
+        .contact-card:nth-child(4) .contact-icon::before { content: '💰'; }
+        .contact-card:nth-child(5) .contact-icon::before { content: '🌍'; }
+        .contact-card:nth-child(6) .contact-icon::before { content: '🛠️'; }
+        
+        .contact-card h4 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+        
+        .contact-card p {
+            opacity: 0.8;
+            line-height: 1.6;
+            font-size: clamp(0.95rem, 2.3vw, 1.05rem);
+        }
+        
+        .contact-info-box {
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.1), rgba(96, 165, 250, 0.1));
+            border-radius: 20px;
+            border-left: 6px solid var(--accent-green);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+        
+        .contact-info-box h4 {
+            color: var(--accent-green);
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+            font-weight: 700;
+        }
+        
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-weight: 500;
+        }
+        
+        .contact-method i {
+            color: var(--accent-green);
+            font-size: 1.5em;
+        }
+        
+        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(60px);
             }
             to {
                 opacity: 1;
@@ -171,212 +970,529 @@
             }
         }
         
-        @keyframes slideInRight {
+        @keyframes slideInUp {
             from {
                 opacity: 0;
-                transform: translateX(50px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateY(0);
             }
         }
         
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
+        /* Floating Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            animation: floatAround 20s infinite ease-in-out;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: -5s;
+        }
+        
+        .floating-element:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: -10s;
+        }
+        
+        .floating-element:nth-child(4) {
+            top: 80%;
+            right: 25%;
+            animation-delay: -15s;
+        }
+        
+        @keyframes floatAround {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
             }
-            to {
-                opacity: 1;
+            25% {
+                transform: translate(30px, -30px) rotate(90deg);
+            }
+            50% {
+                transform: translate(-20px, -60px) rotate(180deg);
+            }
+            75% {
+                transform: translate(-50px, -10px) rotate(270deg);
             }
         }
         
-        .timer {
-            font-family: 'Courier New', monospace;
-            font-size: 1.5rem;
-            color: #4ade80;
-            margin: 20px 0;
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
         }
         
         @media (max-width: 768px) {
-            .logo {
-                font-size: 2.5rem;
+            .header {
+                padding: 30px 15px;
             }
-            .tagline {
-                font-size: 1.2rem;
+            
+            .logo-container {
+                gap: 15px;
             }
-            .domain-name {
-                font-size: 2rem;
+            
+            .domains-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
-            .price {
-                font-size: 2rem;
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
             }
+            
+            .stats-section {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 320px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .contact-methods {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .bundle-section,
+            .contact-section,
+            .cta-section {
+                padding: 25px;
+            }
+            
+            .feature-card {
+                padding: 25px;
+            }
+            
+            .stat-card {
+                padding: 25px 15px;
+            }
+            
+            .stats-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .brand-name {
+                letter-spacing: -1px;
+            }
+        }
+        
+        /* Dark mode improvements */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --glass-bg: rgba(255, 255, 255, 0.08);
+                --glass-border: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
+        /* Scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Performance optimizations */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .cta-button,
+        .domain-card,
+        .feature-card,
+        .stat-card,
+        .contact-card {
+            will-change: transform;
         }
     </style>
 </head>
 <body>
+    <div class="animated-bg"></div>
+    <div class="floating-elements">
+        <div class="floating-element">⏰</div>
+        <div class="floating-element">⚡</div>
+        <div class="floating-element">🚀</div>
+        <div class="floating-element">💎</div>
+    </div>
+    
     <div class="container">
+        <!-- Header Section -->
         <header class="header">
-            <div class="logo">MinuTime</div>
-            <div class="tagline">Every Minute Counts. Every Second Matters.</div>
-            <div class="timer" id="timer">00:00:00</div>
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <div class="gear-main">⚙️</div>
+                </div>
+                <div>
+                    <div class="brand-name">MinuTime</div>
+                    <div class="tagline">Every Minute Counts. Every Second Matters.</div>
+                </div>
+            </div>
+            <div class="live-timer" id="liveTimer">00:00:00</div>
         </header>
         
-        <section class="domain-box">
-            <div style="background: linear-gradient(45deg, #ff6b6b, #feca57); color: white; padding: 10px 20px; border-radius: 25px; display: inline-block; margin-bottom: 20px; font-size: 1.1rem; font-weight: bold;">
-                🎁 EXCLUSIVE BUNDLE OFFER 🎁
-            </div>
-            <div class="domain-name">MinuTime Portfolio</div>
-            <div style="font-size: 1.5rem; margin: 20px 0; line-height: 1.5;">
-                <div style="color: #4ade80; font-weight: bold;">✨ MinuTime.com</div>
-                <div style="color: #60a5fa; font-weight: bold;">✨ MinuTime.link</div>
-                <div style="color: #f472b6; font-weight: bold;">✨ MinuTime.info</div>
-            </div>
-            <div style="font-size: 1.2rem; opacity: 0.9;">Complete Premium Domain Portfolio</div>
-            <div style="font-size: 1.5rem; text-decoration: line-through; opacity: 0.7; margin-top: 15px;">$3,500</div>
-            <div class="price">$2,299</div>
-            <div style="opacity: 0.8; margin-top: 10px;">💎 3 Premium Domains • 🚀 Full Brand Protection • ⚡ Business Ready</div>
-            <div style="background: rgba(255, 107, 107, 0.2); padding: 15px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #ff6b6b;">
-                <strong>🔥 Limited Time: Save $1,201!</strong><br>
-                Perfect for complete brand protection across all extensions
+        <!-- Bundle Offer Section -->
+        <section class="bundle-section scroll-reveal">
+            <div style="text-align: center;">
+                <div class="offer-badge">
+                    🎁 EXCLUSIVE BUNDLE OFFER - SAVE $1,201! 🎁
+                </div>
+                
+                <div class="domains-grid">
+                    <div class="domain-card primary">
+                        <div class="domain-name">MinuTime.com</div>
+                        <div class="domain-price">$1,500</div>
+                        <div class="domain-extension">🌟 Premium .COM</div>
+                    </div>
+                    <div class="domain-card secondary">
+                        <div class="domain-name">MinuTime.link</div>
+                        <div class="domain-price">$1,000</div>
+                        <div class="domain-extension">🔗 Modern .LINK</div>
+                    </div>
+                    <div class="domain-card tertiary">
+                        <div class="domain-name">MinuTime.info</div>
+                        <div class="domain-price">$1,000</div>
+                        <div class="domain-extension">ℹ️ Reliable .INFO</div>
+                    </div>
+                </div>
+                
+                <div class="bundle-pricing">
+                    <div class="original-price">Individual Value: $3,500</div>
+                    <div class="bundle-price">$2,299</div>
+                    <div class="savings">🔥 You Save $1,201!</div>
+                </div>
             </div>
         </section>
         
-        <section class="stats">
-            <div class="stat">
+        <!-- Stats Section -->
+        <section class="stats-section scroll-reveal">
+            <div class="stat-card">
                 <div class="stat-number">3</div>
-                <div class="stat-label">Premium Domains</div>
+                <div class="stat-label">🏆 Premium Domains</div>
             </div>
-            <div class="stat">
+            <div class="stat-card">
                 <div class="stat-number">100%</div>
-                <div class="stat-label">Brand Protection</div>
+                <div class="stat-label">🛡️ Brand Protection</div>
             </div>
-            <div class="stat">
+            <div class="stat-card">
+                <div class="stat-number">34%</div>
+                <div class="stat-label">📊 Discount</div>
+            </div>
+            <div class="stat-card">
                 <div class="stat-number">$1,201</div>
-                <div class="stat-label">You Save</div>
+                <div class="stat-label">💰 You Save</div>
             </div>
         </section>
         
-        <section class="features">
-            <div class="feature">
-                <span class="feature-icon">⏱️</span>
-                <h3>Time Management Apps</h3>
-                <p>Perfect for productivity apps, time tracking tools, and scheduling platforms</p>
-            </div>
-            
-            <div class="feature">
-                <span class="feature-icon">🎯</span>
-                <h3>Fitness & Training</h3>
-                <p>Ideal for interval training apps, workout timers, and fitness challenges</p>
-            </div>
-            
-            <div class="feature">
-                <span class="feature-icon">📊</span>
-                <h3>Business Solutions</h3>
-                <p>Great for project management, meeting schedulers, and time analytics</p>
-            </div>
-            
-            <div class="feature">
-                <span class="feature-icon">🎮</span>
-                <h3>Gaming & Entertainment</h3>
-                <p>Perfect for timing games, quick challenges, and interactive experiences</p>
-            </div>
-            
-            <div class="feature">
-                <span class="feature-icon">📱</span>
-                <h3>Mobile Apps</h3>
-                <p>Short, memorable name that works perfectly for mobile applications</p>
-            </div>
-            
-            <div class="feature">
-                <span class="feature-icon">🌐</span>
-                <h3>Global Appeal</h3>
-                <p>Easy to pronounce and remember in any language or market</p>
-            </div>
-        </section>
-        
-        <section style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 40px; margin: 40px 0; border: 1px solid rgba(255, 255, 255, 0.2);">
-            <h3 style="text-align: center; margin-bottom: 30px; font-size: 1.8rem;">💰 Individual Domain Values</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                <div style="background: rgba(74, 222, 128, 0.1); padding: 25px; border-radius: 12px; border-left: 4px solid #4ade80;">
-                    <h4 style="color: #4ade80; font-size: 1.3rem; margin-bottom: 10px;">MinuTime.com</h4>
-                    <div style="font-size: 1.8rem; font-weight: bold; margin-bottom: 10px;">$1,500</div>
-                    <p style="opacity: 0.9;">Premium .COM extension - Most valuable</p>
+        <!-- Features Section -->
+        <section class="features-section scroll-reveal">
+            <h2 class="section-title">🎯 Perfect For Multiple Industries</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3 class="feature-title">Productivity & Time Management</h3>
+                    <p class="feature-description">Perfect for time tracking apps, task managers, and productivity platforms that help users optimize their daily routines.</p>
                 </div>
-                <div style="background: rgba(96, 165, 250, 0.1); padding: 25px; border-radius: 12px; border-left: 4px solid #60a5fa;">
-                    <h4 style="color: #60a5fa; font-size: 1.3rem; margin-bottom: 10px;">MinuTime.link</h4>
-                    <div style="font-size: 1.8rem; font-weight: bold; margin-bottom: 10px;">$1,000</div>
-                    <p style="opacity: 0.9;">Perfect for modern apps & links</p>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3 class="feature-title">Fitness & Workout Timers</h3>
+                    <p class="feature-description">Ideal for interval training apps, workout timers, fitness challenges, and health tracking platforms.</p>
                 </div>
-                <div style="background: rgba(244, 114, 182, 0.1); padding: 25px; border-radius: 12px; border-left: 4px solid #f472b6;">
-                    <h4 style="color: #f472b6; font-size: 1.3rem; margin-bottom: 10px;">MinuTime.info</h4>
-                    <div style="font-size: 1.8rem; font-weight: bold; margin-bottom: 10px;">$1,000</div>
-                    <p style="opacity: 0.9;">Great for information platforms</p>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3 class="feature-title">Business Solutions</h3>
+                    <p class="feature-description">Great for project management tools, meeting schedulers, time analytics, and business productivity suites.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3 class="feature-title">Gaming & Entertainment</h3>
+                    <p class="feature-description">Perfect for timing games, speed challenges, quiz platforms, and interactive entertainment experiences.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3 class="feature-title">Education & Learning</h3>
+                    <p class="feature-description">Excellent for study timers, learning platforms, educational games, and time-based learning applications.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3 class="feature-title">Mobile Applications</h3>
+                    <p class="feature-description">Short, memorable name that works perfectly for mobile apps across iOS and Android platforms.</p>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 30px; font-size: 1.3rem;">
-                <span style="opacity: 0.8;">Total Individual Value: </span>
-                <span style="text-decoration: line-through; color: #ff6b6b;">$3,500</span>
-                <span style="margin: 0 15px; font-size: 1.8rem;">→</span>
-                <span style="color: #4ade80; font-weight: bold;">Bundle Price: $2,299</span>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta-section scroll-reveal">
+            <h2 class="cta-title">🎯 Ready to Own This Premium Domain Portfolio?</h2>
+            <div class="cta-buttons">
+                <a href="mailto:yassinebouaida@gmail.com?subject=MinuTime%20Domain%20Bundle%20Inquiry&body=Hi!%20I'm%20interested%20in%20the%20MinuTime%20domain%20bundle%20for%20$2,299.%20Please%20provide%20more%20details%20about%20the%20transfer%20process." class="cta-button">
+                    📧 Email Now
+                </a>
+                <a href="https://wa.me/212633348514?text=Hi!%20I'm%20interested%20in%20the%20MinuTime%20domain%20bundle%20($2,299).%20Can%20we%20discuss%20the%20details?" class="cta-button secondary">
+                    💬 WhatsApp
+                </a>
             </div>
         </section>
         
-        <section class="cta-section">
-            <h2 style="margin-bottom: 30px;">Ready to Own This Complete Domain Portfolio?</h2>
-            <a href="mailto:yassinebouaida@gmail.com?subject=MinuTime Domain Bundle Inquiry" class="cta-button">📧 Contact Now</a>
-            <a href="https://wa.me/212633348514?text=Hi! I'm interested in the MinuTime domain bundle" class="cta-button">💬 WhatsApp</a>
-        </section>
-        
-        <section class="contact-info">
-            <h3 style="margin-bottom: 20px;">Why Choose the Complete MinuTime Portfolio?</h3>
-            <p style="margin-bottom: 20px;">Get complete brand protection with all three premium domains! This powerful bundle combines .COM, .LINK, and .INFO extensions, giving you total control over the MinuTime brand.</p>
+        <!-- Contact Section -->
+        <section class="contact-section scroll-reveal">
+            <h3>🤔 Why Choose the Complete MinuTime Portfolio?</h3>
+            <p>Get complete brand protection with all three premium domains! This powerful bundle gives you total control over the MinuTime brand across all major extensions.</p>
             
-            <div style="background: rgba(74, 222, 128, 0.1); padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #4ade80;">
-                <h4 style="color: #4ade80; margin-bottom: 10px;">🎯 Perfect For:</h4>
-                <p>• Time Management Platforms • Productivity Apps • Fitness Timers • Business Solutions • Educational Tools • Gaming Platforms</p>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon"></div>
+                    <h4>Complete Brand Protection</h4>
+                    <p>Own all extensions and prevent competitors from using similar domains</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon"></div>
+                    <h4>SEO Advantage</h4>
+                    <p>Multiple domains boost your online presence and search engine rankings</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon"></div>
+                    <h4>Instant Transfer</h4>
+                    <p>Quick and secure domain transfer with full ownership documentation</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon"></div>
+                    <h4>Great Investment</h4>
+                    <p>Premium domains appreciate in value over time, especially brandable names</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon"></div>
+                    <h4>Global Appeal</h4>
+                    <p>Easy to pronounce and remember in any language or market worldwide</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon"></div>
+                    <h4>Versatile Usage</h4>
+                    <p>Perfect for apps, websites, redirects, email addresses, and more</p>
+                </div>
             </div>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px;">
-                <div>✅ Instant Transfer</div>
-                <div>✅ Full Ownership</div>
-                <div>✅ No Hidden Fees</div>
-                <div>✅ Secure Payment</div>
-                <div>✅ Brand Protection</div>
-                <div>✅ SEO Advantage</div>
-            </div>
-            
-            <div style="margin-top: 30px; padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 10px;">
-                <h4 style="margin-bottom: 10px;">📞 Contact Information:</h4>
-                <p>📧 Email: yassinebouaida@gmail.com</p>
-                <p>📱 WhatsApp: +212 633 348 514</p>
+            <div class="contact-info-box">
+                <h4>📞 Contact Information</h4>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        📧 yassinebouaida@gmail.com
+                    </div>
+                    <div class="contact-method">
+                        💬 +212 633 348 514
+                    </div>
+                </div>
             </div>
         </section>
     </div>
     
     <script>
-        // Live timer
+        // Live timer functionality
         function updateTimer() {
             const now = new Date();
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
-            document.getElementById('timer').textContent = `${hours}:${minutes}:${seconds}`;
+            const timerElement = document.getElementById('liveTimer');
+            if (timerElement) {
+                timerElement.textContent = `${hours}:${minutes}:${seconds}`;
+            }
         }
         
+        // Update timer every second
         setInterval(updateTimer, 1000);
         updateTimer();
         
-        // Add some interactive effects
-        document.querySelectorAll('.feature').forEach(feature => {
-            feature.addEventListener('mouseenter', function() {
-                this.style.background = 'rgba(255, 255, 255, 0.2)';
-            });
+        // Scroll reveal animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.scroll-reveal');
             
-            feature.addEventListener('mouseleave', function() {
-                this.style.background = 'rgba(255, 255, 255, 0.1)';
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveal.getBoundingClientRect().top;
+                const revealPoint = 100;
+                
+                if (revealTop < windowHeight - revealPoint) {
+                    reveal.classList.add('revealed');
+                }
+            });
+        }
+        
+        // Mouse tracking for feature cards
+        function trackMouse() {
+            const cards = document.querySelectorAll('.feature-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = ((e.clientX - rect.left) / rect.width) * 100;
+                    const y = ((e.clientY - rect.top) / rect.height) * 100;
+                    
+                    card.style.setProperty('--mouse-x', `${x}%`);
+                    card.style.setProperty('--mouse-y', `${y}%`);
+                });
+            });
+        }
+        
+        // Enhanced button interactions
+        function enhanceButtons() {
+            const buttons = document.querySelectorAll('.cta-button');
+            
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.05)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+                
+                button.addEventListener('mousedown', function() {
+                    this.style.transform = 'translateY(-4px) scale(1.02)';
+                });
+                
+                button.addEventListener('mouseup', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.05)';
+                });
+            });
+        }
+        
+        // Parallax effect for floating elements
+        function parallaxEffect() {
+            const floatingElements = document.querySelectorAll('.floating-element');
+            
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.3;
+                
+                floatingElements.forEach((element, index) => {
+                    const speed = (index + 1) * 0.1;
+                    element.style.transform = `translateY(${rate * speed}px)`;
+                });
+            });
+        }
+        
+        // Performance-optimized scroll handler
+        let ticking = false;
+        function handleScroll() {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    revealOnScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+        
+        // Initialize all interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            revealOnScroll();
+            trackMouse();
+            enhanceButtons();
+            parallaxEffect();
+            
+            // Optimize scroll performance
+            window.addEventListener('scroll', handleScroll, { passive: true });
+        });
+        
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
+        
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+        });
+        
+        // Intersection Observer for better performance
+        if ('IntersectionObserver' in window) {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                observer.observe(el);
+            });
+        }
     </script>
 </body>
 </html>
